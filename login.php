@@ -13,16 +13,16 @@
         <article>
 
             <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                <p>
+                <p class="form-group">
                     <label for="brugerMail">Email: </label>
                     <input type="text" name="brugerMail">
                 </p>
-                <p>
+                <p class="form-group">
                     <label for="brugerPassword">Adgangskode:</label>
                     <input type="text" name="brugerPassword">
                 </p>
 
-                <input type="submit" name="loginSubmit" value="Log ind">
+                <input type="submit" value="Log ind" class="btn btn-primary" name="loginSubmit">
             </form>
         </article>
     </section>

@@ -32,17 +32,17 @@
                             }
                         ?>
                         
-                            <input type="submit" name="chooseUser" value="Vælg">
+                            <input type="submit" value="Vælg" class="btn btn-primary" name="chooseUser">
                         
                     </select>
                 </form>
                 
                 <form method="post">
-                    <p>
+                    <p class="form-group">
                         <label for="brugerMail">Email: </label>
                         <input type="email" name="brugerMail" placeholder="[php kode]">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerPrivilegie">Privilegie:</label>
                         <select name="brugerPrivilegie">
                             <option value="Administrator">Administrator</option>
@@ -50,29 +50,29 @@
                             <option value="Bruger" selected>Bruger</option>
                         </select>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerFornavn">Fornavn: </label>
                         <input type="text" name="brugerFornavn" placeholder="[php kode]">
                         <label for="brugerEfternavn">Efternavn: </label>
                         <input type="text" name="brugerEfternavn" placeholder="[php kode]">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerAdresse">Adresse: </label>
                         <input type="text" name="brugerAdresse" placeholder="[php kode]">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerPostnr">Postnummer: </label>
                         <input type="text" name="brugerPostnr" placeholder="[php kode]">
                         <label for="brugerBy">By: </label>
                         <input type="text" name="brugerBy" placeholder="[php kode]">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerTlfnr">Telefonnummer: </label>
                         <input type="text" name="brugerTlfnr" placeholder="[php kode]">
                     </p>
                     
-                    <input type="submit" value="Acceptér Ændringer" name="admAccRetBruger">
-                    <input type="submit" value="Fortryd Ændringer" name="admFortrRetBruger">
+                    <input type="submit" value="Acceptér Ændringer" class="btn btn-primary" name="admAccRetBruger">
+                    <input type="submit" value="Fortryd Ændringer" class="btn btn-primary" name="admFortrRetBruger">
                 </form>
             </article>
         </section>

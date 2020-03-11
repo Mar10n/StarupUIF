@@ -23,7 +23,7 @@
                     <option value="Natur">Natur</option>
                     <option value="Andet">Andet</option>
                 </select>
-                <input type="submit" name="catChooser" value="Udfør">
+                <input type="submit" name="catChooser" class="btn btn-primary" value="Udfør">
             </form>
 
             <article>
@@ -39,7 +39,7 @@
             </article>
 
             <form method="post">
-                <input type="submit" name="showAllEvents" value="Vis Alle Arrangementer"> <!-- eller som link til index-siden igen med angivelse af et argument, som fortæller, at man gerne vil se alle arrangementer -->
+                <input type="submit" name="showAllEvents" class="btn btn-primary" value="Vis Alle Arrangementer"> <!-- eller som link til index-siden igen med angivelse af et argument, som fortæller, at man gerne vil se alle arrangementer -->
             </form>
 
         </section>

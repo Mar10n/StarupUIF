@@ -15,12 +15,12 @@
             <article>
 
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                    <p>
+                    <p class="form-group">
                         <label for="brugerMail">Email: </label>
                         <input type="email" name="brugerMail" placeholder="[php kode]" readonly>
                         <span class="error">* <?php echo $mailErr;?></span>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerPassword">Adgangskode:</label>
                         <input type="password" name="brugerPassword" required>
                         <span class="error">* <?php echo $pwErr;?></span>
@@ -28,35 +28,35 @@
                         <input type="password" name="brugerGentagPassword" required>
                         <span class="error">* <?php echo $repeatPwErr;?></span>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerPrivilegie">Privilegie:</label>
                         <input type="text" name="brugerPrivilegie" placeholder="[php kode]" disabled> <!-- Kun Administratorer kan redigere -->
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerFornavn">Fornavn: </label>
                         <input type="text" name="brugerFornavn" placeholder="[php kode]" readonly>
                         <label for="brugerEfternavn">Efternavn: </label>
                         <input type="text" name="brugerEfternavn" placeholder="[php kode]" readonly>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerAdresse">Adresse: </label>
                         <input type="text" name="brugerAdresse" placeholder="[php kode]" readonly>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerPostnr">Postnummer: </label>
                         <input type="text" name="brugerPostnr" placeholder="[php kode]" readonly>
                         <label for="brugerBy">By: </label>
                         <input type="text" name="brugerBy" placeholder="[php kode]" readonly>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="brugerTlfnr">Telefonnummer: </label>
                         <input type="text" name="brugerTlfnr" placeholder="[php kode]" readonly>
                     </p>
                     
 
-                    <input type="submit" value="Ret Bruger" name="retBruger">
-                    <input type="submit" value="Acceptér Ændringer" name="accRetBruger">
-                    <input type="submit" value="Fortryd Ændringer" name="fortrRetBruger">
+                    <input type="submit" class="btn btn-primary" value="Ret Bruger" name="retBruger">
+                    <input type="submit" class="btn btn-primary" value="Acceptér Ændringer" name="accRetBruger">
+                    <input type="submit" class="btn btn-primary" value="Fortryd Ændringer" name="fortrRetBruger">
                 </form>
 
             </article>

@@ -28,19 +28,20 @@
             <article>
 
                 <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                    <p><label for="tilmeldAntal">Tilmeld antal:</label>
+                    <p class="form-group">
+                    <label for="tilmeldAntal">Tilmeld antal:</label>
                     <input type="number" name="tilmeldAntal">
-                    <input type="submit" name="tilmeldArrangement" value="Tilmeld"></p>
-                    <input type="submit" name="retArrangement" value="Ret Arrangement">
-                    <input type="submit" name="accRetArrangement" value="Acceptér Ændringer">
-                    <input type="submit" name="fortrRetArrangement" value="Fortryd Ændringer">
+                    <input type="submit" class="btn btn-primary" value="Tilmeld" name="tilmeldArrangement"></p>
+                    <input type="submit" class="btn btn-primary" value="Ret Arrangement" name="retArrangement">
+                    <input type="submit" class="btn btn-primary" value="Acceptér Ændringer" name="accRetArrangement">
+                    <input type="submit" class="btn btn-primary" value="Fortryd Ændringer" name="fortrRetArrangement">
 
                     
-                    <p>
+                    <p class="form-group">
                         <label for="eventNavn">Navn på arrangement: </label>
                         <input type="text" name="eventNavn">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventCategory">Kategori</label>
                         <select name="eventCategory">
                             <option value="Musik">Musik</option>
@@ -51,39 +52,39 @@
                             <option value="Andet">Andet</option>
                         </select>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventBeskrivelse">Beskrivelse af arrangementet:</label>
                         <textarea placeholder="Indtast beskrivelse..." style="resize: none;"></textarea>
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventImage">Upload et billede til/af arrangement:</label>
                         <input type="file" name="eventImage">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventDato">Dato: </label>
                         <input type="date" name="eventDato" min="2020-01-01" max="2020-12-31">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventStartTid">Start tidspunkt: </label>
                         <input type="time" name="eventStartTid">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventSlutTid">Slut tidspunkt (ikke påkrævet): </label>
                         <input type="time" name="eventSlutTid">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventSted">Sted: </label>
                         <input type="text" name="eventSted">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventMaxDelt">Max. antal deltagere: </label>
                         <input type="number" name="eventMaxDelt">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventAnsvarlig">Ansvarlig/kontaktperson: </label>
                         <input type="text" name="eventAnsvarlig">
                     </p>
-                    <p>
+                    <p class="form-group">
                         <label for="eventAnsvTlf">Telefonnummer ansvarlig/kontaktperson:</label>
                         <input type="text" name="eventAnsvTlf">
                     </p>
