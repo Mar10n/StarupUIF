@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Starup UIF arrangements kalender. Opret nye arrangementer - tilmeld dig arrangementer. Et godt sted at starte et aktivt og interessant fritidsliv.">
+    <title>Starup UIF arrangementer</title>
+</head>
+<body>
+    <main>
+        <h1>Kommende arrangementer i Starup UIF</h1>
+        <section>
+
+            <form method="post">
+                <label for="eventCategory">Vælg kategori</label>
+                <select name="eventCategory">
+                    <option value="Alle">Alle</option>
+                    <option value="Musik">Musik</option>
+                    <option value="Kunst">Kunst</option>
+                    <option value="Foredrag">Foredrag</option>
+                    <option value="Sport">Sport/idræt</option>
+                    <option value="Natur">Natur</option>
+                    <option value="Andet">Andet</option>
+                </select>
+                <input type="submit" name="catChooser" value="Udfør">
+            </form>
+
+            <article>
+
+                <p>[Arrangement billede (må gerne være i højformat her men må også gerne være i det format, der er vedlagt til opgaven)]</p>
+                <p>[Arrangement beskrivelse - evt. forkortet eller afbrudt med ...]</p>
+                <p>[Arrangement dato]</p>
+                <p>[Arrangement starttidspunkt]</p>
+                <p>[Arrangement sted]</p>
+
+                <a href="visArrangement.html">Læs mere om dette arrangement...</a> <!-- Eller som knap -->
+
+            </article>
+
+            <form method="post">
+                <input type="submit" name="showAllEvents" value="Vis Alle Arrangementer"> <!-- eller som link til index-siden igen med angivelse af et argument, som fortæller, at man gerne vil se alle arrangementer -->
+            </form>
+
+        </section>
+    </main>
+</body>
+</html>

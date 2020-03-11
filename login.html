@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Starup UIF arrangements kalender. Opret nye arrangementer - tilmeld dig arrangementer. Et godt sted at starte et aktivt og interessant fritidsliv.">
+    <title>Starup UIF arrangementer - login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <section>
+        <article>
+
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                <p>
+                    <label for="brugerMail">Email: </label>
+                    <input type="text" name="brugerMail">
+                </p>
+                <p>
+                    <label for="brugerPassword">Adgangskode:</label>
+                    <input type="text" name="brugerPassword">
+                </p>
+
+                <input type="submit" name="loginSubmit" value="Log ind">
+            </form>
+        </article>
+    </section>
+</body>
+</html>

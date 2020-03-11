@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Starup UIF arrangements kalender. Opret nye arrangementer - tilmeld dig arrangementer. Et godt sted at starte et aktivt og interessant fritidsliv.">
+    <title>Starup UIF arrangementer - vis arrangement</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>[Arrangement navn]</h1>
+
+            <article>
+            <p>[Arrangement billede]</p>
+            <p>[Arrangement kategori]</p>
+            <p>[Arrangement beskrivelse]</p>
+            <p>[Arrangement dato]</p>
+            <p>[Arrangement starttidspunkt]</p>
+            <p>[Arrangement sluttidspunkt]</p>
+            <p>[Arrangement sted]</p>
+            <p>[Arrangement deltagere nuværende/max]</p>
+            <p>[Arrangement kontaktperson]</p>
+            <p>[Arrangement kontaktperson tlf.nr.]</p>
+            </article>
+
+            <article>
+
+                <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                    <p><label for="tilmeldAntal">Tilmeld antal:</label>
+                    <input type="number" name="tilmeldAntal">
+                    <input type="submit" name="tilmeldArrangement" value="Tilmeld"></p>
+                    <input type="submit" name="retArrangement" value="Ret Arrangement">
+                    <input type="submit" name="accRetArrangement" value="Acceptér Ændringer">
+                    <input type="submit" name="fortrRetArrangement" value="Fortryd Ændringer">
+
+                    
+                    <p>
+                        <label for="eventNavn">Navn på arrangement: </label>
+                        <input type="text" name="eventNavn">
+                    </p>
+                    <p>
+                        <label for="eventCategory">Kategori</label>
+                        <select name="eventCategory">
+                            <option value="Musik">Musik</option>
+                            <option value="Kunst">Kunst</option>
+                            <option value="Foredrag">Foredrag</option>
+                            <option value="Sport">Sport/idræt</option>
+                            <option value="Natur">Natur</option>
+                            <option value="Andet">Andet</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="eventBeskrivelse">Beskrivelse af arrangementet:</label>
+                        <textarea placeholder="Indtast beskrivelse..." style="resize: none;"></textarea>
+                    </p>
+                    <p>
+                        <label for="eventImage">Upload et billede til/af arrangement:</label>
+                        <input type="file" name="eventImage">
+                    </p>
+                    <p>
+                        <label for="eventDato">Dato: </label>
+                        <input type="date" name="eventDato" min="2020-01-01" max="2020-12-31">
+                    </p>
+                    <p>
+                        <label for="eventStartTid">Start tidspunkt: </label>
+                        <input type="time" name="eventStartTid">
+                    </p>
+                    <p>
+                        <label for="eventSlutTid">Slut tidspunkt (ikke påkrævet): </label>
+                        <input type="time" name="eventSlutTid">
+                    </p>
+                    <p>
+                        <label for="eventSted">Sted: </label>
+                        <input type="text" name="eventSted">
+                    </p>
+                    <p>
+                        <label for="eventMaxDelt">Max. antal deltagere: </label>
+                        <input type="number" name="eventMaxDelt">
+                    </p>
+                    <p>
+                        <label for="eventAnsvarlig">Ansvarlig/kontaktperson: </label>
+                        <input type="text" name="eventAnsvarlig">
+                    </p>
+                    <p>
+                        <label for="eventAnsvTlf">Telefonnummer ansvarlig/kontaktperson:</label>
+                        <input type="text" name="eventAnsvTlf">
+                    </p>
+                </form>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
