@@ -1,8 +1,3 @@
-<?php
-    session_start();
-    // including config file
-    require_once "includes/config.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,10 +16,24 @@
     </header>
     <main>
         <section>
-        <?php
-        $id = $_GET['EID'];
+            <h1>[Arrangement navn]</h1>
 
-        $stmt = $mysqli->query("SELECT * FROM events WHERE EID = $id ");
+            <article>
+            <?php
+        $id = $_GET['id'];
+        $imgcount = 0;
+        $Lager = $mysqli->query("SELECT prodImage FROM products WHERE id = $id ");
+        $imgCountVarible = 0;
+        while ($ImgLager = $Lager->fetch_assoc()) {
+            $resimgLager[] = $ImgLager;
+            $resimgLagerexplode = explode(' ', $resimgLager[0]['prodImage']);
+            if (count($resimgLagerexplode)) {
+                $imgcount = count($resimgLagerexplode);
+            } else {
+            }
+        }
+
+        $stmt = $mysqli->query("SELECT * FROM products WHERE id = $id ");
 
 
         while ($row = $stmt->fetch_assoc()) {
@@ -35,22 +44,39 @@
             $rowCount = count($productrow);
         }
 
-        echo "<div class = 'DynText'><h1>Navn: {$productrow[0]['EName']}</h1>
-        <h2> Kategori: {$productrow[0]['ECategory']}</h2>
+        echo "<div class = 'DynText'><h3>Navn: {$productrow[0]['prodName']}</h3>
+        <p> Beskrivelse: {$productrow[0]['prodDesc']}</p>
         </div> 
       ";
 
+        echo
+            "<div class='image_grid'>";
+        for ($i = 0; $i < $imgcount; $i++) {
+
+            $tæller = "item-$i";
+
+
+
+            echo
+                "<div class='$tæller'>
+               
+        <img src='img/{$resimgLagerexplode[$i]}'>
+       
+        </div>";
+        }
+
         echo "
-        </div>";
+</div>";
         echo " <div class ='DynText'>
-        <p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
-        <p>Vi har:{$productrow[0]['stock']} På lager</p>
-        <a href='#' class='myButton'>Tilføj Til Kurv!</a>
-        </div>";
+<p>Pris:{$productrow[0]['price']},-</p> 
+<p>Vi har:{$productrow[0]['stock']} På lager</p>
+<a href='#' class='myButton'>Tilføj Til Kurv!</a>
+</div>";
         // Footer
         include 'includes/Footer.php';
 
         ?>
+            </article>
 
             <article>
 

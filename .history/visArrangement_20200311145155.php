@@ -1,8 +1,3 @@
-<?php
-    session_start();
-    // including config file
-    require_once "includes/config.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,36 +16,20 @@
     </header>
     <main>
         <section>
-        <?php
-        $id = $_GET['EID'];
+            <h1>[Arrangement navn]</h1>
 
-        $stmt = $mysqli->query("SELECT * FROM events WHERE EID = $id ");
-
-
-        while ($row = $stmt->fetch_assoc()) {
-
-            $productrow[] = $row;
-
-
-            $rowCount = count($productrow);
-        }
-
-        echo "<div class = 'DynText'><h1>Navn: {$productrow[0]['EName']}</h1>
-        <h2> Kategori: {$productrow[0]['ECategory']}</h2>
-        </div> 
-      ";
-
-        echo "
-        </div>";
-        echo " <div class ='DynText'>
-        <p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
-        <p>Vi har:{$productrow[0]['stock']} På lager</p>
-        <a href='#' class='myButton'>Tilføj Til Kurv!</a>
-        </div>";
-        // Footer
-        include 'includes/Footer.php';
-
-        ?>
+            <article>
+            <p>[Arrangement billede]</p>
+            <p>[Arrangement kategori]</p>
+            <p>[Arrangement beskrivelse]</p>
+            <p>[Arrangement dato]</p>
+            <p>[Arrangement starttidspunkt]</p>
+            <p>[Arrangement sluttidspunkt]</p>
+            <p>[Arrangement sted]</p>
+            <p>[Arrangement deltagere nuværende/max]</p>
+            <p>[Arrangement kontaktperson]</p>
+            <p>[Arrangement kontaktperson tlf.nr.]</p>
+            </article>
 
             <article>
 

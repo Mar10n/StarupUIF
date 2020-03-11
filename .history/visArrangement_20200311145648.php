@@ -23,6 +23,12 @@
         <section>
         <?php
         $id = $_GET['EID'];
+        $imgcount = 0;
+        $Lager = $mysqli->query("SELECT EName FROM events WHERE EID = $id ");
+        $imgCountVarible = 0;
+        while ($ImgLager = $Lager->fetch_assoc()) {
+            $resimgLager[] = $ImgLager;
+        }
 
         $stmt = $mysqli->query("SELECT * FROM events WHERE EID = $id ");
 
@@ -35,18 +41,34 @@
             $rowCount = count($productrow);
         }
 
-        echo "<div class = 'DynText'><h1>Navn: {$productrow[0]['EName']}</h1>
-        <h2> Kategori: {$productrow[0]['ECategory']}</h2>
+        echo "<div class = 'DynText'><h3>Navn: {$productrow[0]['prodName']}</h3>
+        <p> Beskrivelse: {$productrow[0]['prodDesc']}</p>
         </div> 
       ";
 
+        echo
+            "<div class='image_grid'>";
+        for ($i = 0; $i < $imgcount; $i++) {
+
+            $tæller = "item-$i";
+
+
+
+            echo
+                "<div class='$tæller'>
+               
+        <img src='img/{$resimgLagerexplode[$i]}'>
+       
+        </div>";
+        }
+
         echo "
-        </div>";
+</div>";
         echo " <div class ='DynText'>
-        <p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
-        <p>Vi har:{$productrow[0]['stock']} På lager</p>
-        <a href='#' class='myButton'>Tilføj Til Kurv!</a>
-        </div>";
+<p>Pris:{$productrow[0]['price']},-</p> 
+<p>Vi har:{$productrow[0]['stock']} På lager</p>
+<a href='#' class='myButton'>Tilføj Til Kurv!</a>
+</div>";
         // Footer
         include 'includes/Footer.php';
 

@@ -35,18 +35,18 @@
             $rowCount = count($productrow);
         }
 
-        echo "<div class = 'DynText'><h1>Navn: {$productrow[0]['EName']}</h1>
-        <h2> Kategori: {$productrow[0]['ECategory']}</h2>
+        echo "<div class = 'DynText'><h3>Navn: {$productrow[0]['EName']}</h3>
+        <p> Beskrivelse: {$productrow[0]['']}</p>
         </div> 
       ";
 
         echo "
-        </div>";
+</div>";
         echo " <div class ='DynText'>
-        <p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
-        <p>Vi har:{$productrow[0]['stock']} På lager</p>
-        <a href='#' class='myButton'>Tilføj Til Kurv!</a>
-        </div>";
+<p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
+<p>Vi har:{$productrow[0]['stock']} På lager</p>
+<a href='#' class='myButton'>Tilføj Til Kurv!</a>
+</div>";
         // Footer
         include 'includes/Footer.php';
 

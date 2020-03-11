@@ -41,12 +41,12 @@
       ";
 
         echo "
-        </div>";
+</div>";
         echo " <div class ='DynText'>
-        <p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
-        <p>Vi har:{$productrow[0]['stock']} På lager</p>
-        <a href='#' class='myButton'>Tilføj Til Kurv!</a>
-        </div>";
+<p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
+<p>Vi har:{$productrow[0]['stock']} På lager</p>
+<a href='#' class='myButton'>Tilføj Til Kurv!</a>
+</div>";
         // Footer
         include 'includes/Footer.php';
 
