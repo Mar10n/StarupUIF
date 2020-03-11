@@ -1,3 +1,112 @@
+<?php
+    //including config.php
+    require_once "includes/config.php";
+    // Initializing the session
+    session_start();
+    
+    // Checking if the user is already logged in, if yes then redirect he user to index
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+    {
+        header("location: index.php");
+        exit;  
+    }
+ 
+ 
+    // Defining variables and initialize with empty values
+    $email = $password = "";
+    $email_err = $password_err = "";
+ 
+    // Processing form data when form is submitted
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+ 
+        // Checking if the username is empty
+        if(empty(trim($_POST["brugerMail"])))
+        {
+            $email_err = "Indtast venligst din email.";
+        }
+        else
+        {
+            $email = trim($_POST["brugerMail"]);
+        }
+    
+        // Checking if the password is empty
+        if(empty(trim($_POST["brugerPassword"])))
+        {
+            $password_err = "Indtast venligst din adgangskode.";
+        }
+        else
+        {
+            $password = trim($_POST["brugerPassword"]);
+        }
+    
+        // Validating credentials
+        if(empty($email_err) && empty($password_err))
+        {
+            // Preparing a select statement
+            $sql = "SELECT UID, UEmail, password FROM users WHERE UEmail = ?";
+        
+            if($stmt = mysqli_prepare($mysqli, $sql))
+            {
+                // Binding variables to the prepared statement as parameters
+                mysqli_stmt_bind_param($stmt, "s", $param_email);
+            
+                // Sets parameters
+                $param_email = $email;
+            
+                // Attempting to execute the prepared statement
+                if(mysqli_stmt_execute($stmt))
+                {
+                    // Storing result
+                    mysqli_stmt_store_result($stmt);
+                
+                    // Checking if the username exists, if yes then verify password
+                    if(mysqli_stmt_num_rows($stmt) == 1)
+                    {                    
+                        // Binding result variables
+                        mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
+                        if(mysqli_stmt_fetch($stmt))
+                        {
+                            if(password_verify($password, $hashed_password))
+                            {
+                                // Password is correct, so start a new session
+                                session_start();
+                            
+                            // Storing the data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["brugerMail"] = $username;                            
+                            
+                            // Redirecting the user to index
+                            header("location: index.php");
+                            }
+                            else
+                            {
+                                // Displays an error message if password is not valid
+                                $password_err = "Adgangskoden er ikke korrekt.";
+                            }
+                        }
+                    } 
+                    else
+                    {
+                        // Displays an error message if username doesn't exist
+                        $email_err = "Der blev ikke fundet nogen bruger med den email.";
+                    }
+                }
+                else
+                {
+                    echo "Noget gik galt prøv igen senere.";
+                }
+            }
+        
+        // Closing the statement
+        mysqli_stmt_close($stmt);
+    }
+    
+    // Closing the connection
+    mysqli_close($mysqli);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +130,11 @@
             <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <p class="form-group">
                     <label for="brugerMail">Email: </label>
-                    <input type="text" name="brugerMail">
+                    <input type="email" name="brugerMail">
                 </p>
                 <p class="form-group">
                     <label for="brugerPassword">Adgangskode:</label>
-                    <input type="text" name="brugerPassword">
+                    <input type="password" name="brugerPassword">
                 </p>
 
                 <input type="submit" value="Log ind" class="btn btn-primary" name="loginSubmit">

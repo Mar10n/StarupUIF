@@ -20,7 +20,7 @@
             // Preparing a select statement
             $sql = "SELECT id FROM users WHERE UEmail = ?";
      
-            if($stmt = mysqli_prepare($mysqli, $sql))
+            if($stmt = mysqli_prepare($link, $sql))
             {
                 // Binds variables to the prepared statement as parameters
                 mysqli_stmt_bind_param($stmt, "s", $param_email);
