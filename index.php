@@ -8,6 +8,11 @@
     <title>Starup UIF arrangementer</title>
 </head>
 <body>
+    <header>
+        <?php
+            include "includes/nav.php";
+        ?>
+    </header>
     <main>
         <h1>Kommende arrangementer i Starup UIF</h1>
         <section>

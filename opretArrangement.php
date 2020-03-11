@@ -8,6 +8,11 @@
     <title>Starup UIF arrangementer - opret arrangement</title>
 </head>
 <body>
+    <header>
+        <?php
+            include "includes/nav.php";
+        ?>
+    </header>
     <main>
         <section>
             <h1>Opret arrangement</h1>

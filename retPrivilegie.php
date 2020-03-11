@@ -15,6 +15,11 @@
     <title>Starup UIF arrangementer - ret brugerprivilegie</title>
 </head>
 <body>
+    <header>
+        <?php
+            include "includes/nav.php";
+        ?>
+    </header>
     <main>
         <section>
             <h1>Opret bruger</h1>

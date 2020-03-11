@@ -8,6 +8,11 @@
     <title>Starup UIF arrangementer - login</title>
 </head>
 <body>
+    <header>
+        <?php
+            include "includes/nav.php";
+        ?>
+    </header>
     <h1>Login</h1>
     <section>
         <article>

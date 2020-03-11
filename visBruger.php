@@ -8,6 +8,11 @@
     <title>Starup UIF arrangementer - min konto</title>
 </head>
 <body>
+    <header>
+        <?php
+            include "includes/nav.php";
+        ?>
+    </header>
     <main>
         <section>
             <h1>Min konto</h1>
