@@ -55,7 +55,6 @@
         <p>Start tidspunkt: {$eventrow[0]['EStartTime']}</p>
         <p>Slut tidspunkt: {$eventrow[0]['EEndTime']}</p>
         <p>Sted: {$eventrow[0]['EPlace']}</p>
-        <p>Pris: {$eventrow[0]['EPrice']}</p>
         <a href='#' class='myButton'>Tilmeld</a>
         </div>";
 ?>

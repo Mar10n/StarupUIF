@@ -5,65 +5,91 @@
 ?>
 
 <?php
-    $id = $_GET['EID'];
-    $imgcount = 0;
-   /* $Lager = $mysqli->query("SELECT EImage FROM events WHERE EID = $id ");
-    $imgCountVarible = 0;
-    while ($ImgLager = $Lager->fetch_assoc())
-    {
-        $resimgLager[] = $ImgLager;
-        $resimgLagerexplode = explode(' ', $resimgLager[0]['EImage']);
-        if (count($resimgLagerexplode))
+
+    ?>
+    
+    <div class="main">
+
+        <?php
+        $id = $_GET['EID'];
+        $imgcount = 0;
+        $Lager = $mysqli->query("SELECT EImage FROM events WHERE EID = $id ");
+        $imgCountVarible = 0;
+        while ($Lager->fetch_assoc())
         {
-            $imgcount = count($resimgLagerexplode);
+            $resimgLager[] = $ImgLager;
+            $resimgLagerexplode = explode(' ', $resimgLager[0]['EImage']);
+            if (count($resimgLagerexplode))
+            {
+                $imgcount = count($resimgLagerexplode);
+            } 
+            else
+            {
+            }
         }
-        else 
+
+        $stmt = $mysqli->query("SELECT * FROM events WHERE EID = $id ");
+
+
+        while ($row = $stmt->fetch_assoc())
         {
 
+            $eventrow[] = $row;
+
+
+            $rowCount = count($eventrow);
         }
-    }*/
-    $stmt = $mysqli->query("SELECT * FROM events WHERE EID = '$id' ");
 
+        echo "<div class = 'DynText'><h3>Navn: {$eventrow[0]['EName']}</h3>
+        <p> Beskrivelse: {$eventrow[0]['EDescription']}</p>
+        </div>"
+        ;
 
-    while ($row = $stmt->fetch_assoc())
-    {
-        $eventrow[] = $row;
-        $rowCount = count($eventrow);
-    }
-
-    /*echo
-    "<div class='image_grid'>";
-    for ($i = 0; $i < $imgcount; $i++)
-    {
-
-        $tæller = "item-$i";
         echo
-            "<div class='$tæller'>
+            "<div class='image_grid'>";
+        for ($i = 0; $i < $imgcount; $i++)
+        {
+
+            $tæller = "item-$i";
+
+
+
+            echo
+                "<div class='$tæller'>
                
-            <img src='img/{$resimgLagerexplode[$i]}'>
+                <img src='img/{$resimgLagerexplode[$i]}'>
        
+                </div>"
+            ;
+        }
+
+        echo "
             </div>"
         ;
-    }*/
-
-        echo "</div>";
         echo 
-        "<div class ='DynText'>
-        <h1>Navn: {$eventrow[0]['EName']}</h1>
-        <p>Beskrivelse: {$eventrow[0]['EDescription']}</p>
-        <p>Dato: {$eventrow[0]['EDate']}</p>
-        <p>Start tidspunkt: {$eventrow[0]['EStartTime']}</p>
-        <p>Slut tidspunkt: {$eventrow[0]['EEndTime']}</p>
-        <p>Sted: {$eventrow[0]['EPlace']}</p>
-        <p>Pris: {$eventrow[0]['EPrice']}</p>
-        <a href='#' class='myButton'>Tilmeld</a>
-        </div>";
+            "<div class ='DynText'>
+            <p>Dato: {$eventrow[$i]['EDate']}</p>
+            <p>Start tid: {$eventrow[$i]['EStartTime']}</p>
+            <p>Slut tid: {$eventrow[$i]['EEndTime']}</p>
+            <p>Sted: {$eventrow[$i]['EPlace']}</p>
+            <p>Pris: {$eventrow[$i]['EPrice']}</p>
+            <p>Max deltagere: {$eventrow[$i]['EMaxPart']}</p>
+            <p>Nuværende tiltagere: {$eventrow[$i]['ECurrPart']}</p>
+            <p>Kontakt navn: {$eventrow[$i]['EContactName']}</p>
+            <p>Tlf nummer: {$eventrow[$i]['EContactPhone']}</p>
+            <p>Oprettet af: {$eventrow[$i]['ECreatedBy']}</p>
+            <a href='#' class='myButton'>Tilmeld!</a>
+            </div>"
+        ;
+        // Footer
+        // include 'includes/Footer.php';
 ?>
 
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Starup UIF arrangements kalender. Opret nye arrangementer - tilmeld dig arrangementer. Et godt sted at starte et aktivt og interessant fritidsliv.">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -92,7 +118,7 @@
 
                     
                     <p class="form-group">
-                        <label for="eventNavn">Navn på arrangement:</label>
+                        <label for="eventNavn">Navn på arrangement: </label>
                         <input type="text" name="eventNavn">
                     </p>
                     <p class="form-group">

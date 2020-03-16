@@ -5,65 +5,63 @@
 ?>
 
 <?php
-    $id = $_GET['EID'];
-    $imgcount = 0;
-   /* $Lager = $mysqli->query("SELECT EImage FROM events WHERE EID = $id ");
-    $imgCountVarible = 0;
-    while ($ImgLager = $Lager->fetch_assoc())
-    {
-        $resimgLager[] = $ImgLager;
-        $resimgLagerexplode = explode(' ', $resimgLager[0]['EImage']);
-        if (count($resimgLagerexplode))
-        {
-            $imgcount = count($resimgLagerexplode);
-        }
-        else 
-        {
+    $Lager = $mysqli->query("SELECT prodImage FROM products");
 
-        }
-    }*/
-    $stmt = $mysqli->query("SELECT * FROM events WHERE EID = '$id' ");
-
-
-    while ($row = $stmt->fetch_assoc())
-    {
-        $eventrow[] = $row;
-        $rowCount = count($eventrow);
+    while ($ImgLager = $Lager->fetch_assoc()) {
+      $resimgLager[] = $ImgLager;
     }
+    
+    $stmt = $mysqli->query("SELECT * FROM products");
+    
+   
+    while ($row = $stmt->fetch_assoc()) {
 
-    /*echo
-    "<div class='image_grid'>";
-    for ($i = 0; $i < $imgcount; $i++)
-    {
+      $productrow[] = $row;
 
-        $tæller = "item-$i";
-        echo
-            "<div class='$tæller'>
-               
-            <img src='img/{$resimgLagerexplode[$i]}'>
-       
-            </div>"
-        ;
-    }*/
 
-        echo "</div>";
-        echo 
-        "<div class ='DynText'>
-        <h1>Navn: {$eventrow[0]['EName']}</h1>
-        <p>Beskrivelse: {$eventrow[0]['EDescription']}</p>
-        <p>Dato: {$eventrow[0]['EDate']}</p>
-        <p>Start tidspunkt: {$eventrow[0]['EStartTime']}</p>
-        <p>Slut tidspunkt: {$eventrow[0]['EEndTime']}</p>
-        <p>Sted: {$eventrow[0]['EPlace']}</p>
-        <p>Pris: {$eventrow[0]['EPrice']}</p>
-        <a href='#' class='myButton'>Tilmeld</a>
-        </div>";
+      $rowCount = count($productrow);
+    }
+    echo 
+    "<div class='Test'>";
+    echo 
+      "<div class='image_grid'>";
+      $tæller = 0;
+
+    for ($i = 0; $i < $rowCount; $i++) {
+      $tæller = "item-$i";
+      
+
+      if (strpos($resimgLager[$i]['prodImage'], ' ')) {
+        $resimgLagerexplode = explode(' ', $resimgLager[$i]['prodImage']);
+        $resimgLager[$i]['prodImage'] = $resimgLagerexplode[0];
+      }
+      else{
+
+      }
+
+      echo
+        "<main class='card'>
+        <div class='card-header'>
+        <h3>{$productrow[$i]['prodName']}</h3>
+        </div>
+        <div class='$tæller card-body'>
+        <img src='img/{$resimgLager[$i]['prodImage']}'>
+        </div>
+        <div class='card-footer'>
+        <p>Beskrivelse:</p>
+        <p>{$productrow[$i]['prodDesc']}</p>
+        <p>Pris:{$productrow[$i]['price']},-</p>
+        <a href='DynamiskIndhold.php?id={$productrow[($i)]['id']}' class='myButton'>Køb nu!</a>
+        </div>
+        </main>";
+    }
 ?>
 
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Starup UIF arrangements kalender. Opret nye arrangementer - tilmeld dig arrangementer. Et godt sted at starte et aktivt og interessant fritidsliv.">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -92,7 +90,7 @@
 
                     
                     <p class="form-group">
-                        <label for="eventNavn">Navn på arrangement:</label>
+                        <label for="eventNavn">Navn på arrangement: </label>
                         <input type="text" name="eventNavn">
                     </p>
                     <p class="form-group">

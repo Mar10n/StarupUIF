@@ -98,7 +98,7 @@
                         <p>Kontakt navn: {$eventrow[$i]['EContactName']}</p>
                         <p>Tlf nummer: {$eventrow[$i]['EContactPhone']}</p>
                         <p>Oprettet af: {$eventrow[$i]['ECreatedBy']}</p>
-                        <a href='visArrangement.php?id={$eventrow[($i)]['EID']}' class='myButton'>Tilmeld!</a>
+                        <a href='visArrangement.php?EID={$eventrow[($i)]['id']}' class='myButton'>Tilmeld!</a>
                         </div>
                         </main>"
                     ;

@@ -50,12 +50,9 @@
         echo 
         "<div class ='DynText'>
         <h1>Navn: {$eventrow[0]['EName']}</h1>
-        <p>Beskrivelse: {$eventrow[0]['EDescription']}</p>
-        <p>Dato: {$eventrow[0]['EDate']}</p>
-        <p>Start tidspunkt: {$eventrow[0]['EStartTime']}</p>
-        <p>Slut tidspunkt: {$eventrow[0]['EEndTime']}</p>
-        <p>Sted: {$eventrow[0]['EPlace']}</p>
-        <p>Pris: {$eventrow[0]['EPrice']}</p>
+        <p>Dato:{$eventrow[0]['EDate']}</p> 
+        <p>Start tidspunkt: {$productrow[0]['EStartTime']} På lager</p>
+        <p>Slut tidspunkt: {$productrow[0]['EEndTime']}</p>
         <a href='#' class='myButton'>Tilmeld</a>
         </div>";
 ?>
@@ -92,7 +89,7 @@
 
                     
                     <p class="form-group">
-                        <label for="eventNavn">Navn på arrangement:</label>
+                        <label for="eventNavn">Navn på arrangement: <?php echo "{$productrow[0]['EName']}";?></label>
                         <input type="text" name="eventNavn">
                     </p>
                     <p class="form-group">
