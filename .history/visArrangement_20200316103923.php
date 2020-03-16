@@ -2,6 +2,58 @@
     session_start();
     // including config file
     require_once "includes/config.php";
+
+    $Lager = $mysqli->query("SELECT EImage FROM events");
+
+    while ($ImgLager = $Lager->fetch_assoc()) {
+      $resimgLager[] = $ImgLager;
+    }
+    
+    $stmt = $mysqli->query("SELECT * FROM events");
+    
+   
+    while ($row = $stmt->fetch_assoc()) {
+
+      $eventrow[] = $row;
+
+
+      $rowCount = count($eventrow);
+    }
+    echo 
+    "<div class='Test'>";
+    echo 
+      "<div class='image_grid'>";
+      $tæller = 0;
+
+    for ($i = 0; $i < $rowCount; $i++) {
+      $tæller = "item-$i";
+      
+
+      if (strpos($resimgLager[$i]['EImage'], ' ')) {
+        $resimgLagerexplode = explode(' ', $resimgLager[$i]['EImage']);
+        $resimgLager[$i]['EImage'] = $resimgLagerexplode[0];
+      }
+      else{
+
+      }
+
+      echo
+        "<main class='card'>
+        <div class='card-header'>
+        <h3>{$eventrow[$i]['EName']}</h3>
+        </div>
+        <div class='$tæller card-body'>
+        <img src='img/{$resimgLager[$i]['EImage']}'>
+        </div>
+        <div class='card-footer'>
+        <p>Beskrivelse:</p>
+        <p>{$eventrow[$i]['EDescription']}</p>
+        <p>Pris:{$eventrow[$i]['price']},-</p>
+        <a href='DynamiskIndhold.php?id={$eventrow[($i)]['id']}' class='myButton'>Køb nu!</a>
+        </div>
+        </main>";
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

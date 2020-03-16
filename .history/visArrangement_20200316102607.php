@@ -21,6 +21,35 @@
     </header>
     <main>
         <section>
+        <?php
+        $id = $_GET['EID'];
+
+        $stmt = $mysqli->query("SELECT * FROM events WHERE EID = $id ");
+
+
+        while ($row = $stmt->fetch_assoc()) {
+
+            $productrow[] = $row;
+
+
+            $rowCount = count($productrow);
+        }
+
+        echo "<div class = 'DynText'><h1>Navn: {$productrow[0]['EName']}</h1>
+        <h2> Kategori: {$productrow[0]['ECategory']}</h2>
+        </div> 
+      ";
+
+        echo "
+        </div>";
+        echo " <div class ='DynText'>
+        <p>Beskrivelse:{$productrow[0]['EDescription']},-</p> 
+        <p>Vi har:{$productrow[0]['stock']} På lager</p>
+        </div>";
+        // Footer
+        include 'includes/Footer.php';
+
+        ?>
 
             <article>
 

@@ -3,6 +3,57 @@
     // including config file
     require_once "includes/config.php";
     $Lager = $mysqli->query("SELECT EImage FROM events");
+
+    while ($ImgLager = $Lager->fetch_assoc()) {
+        $resimgLager[] = $ImgLager;
+    }
+
+    $stmt = $mysqli->query("SELECT * FROM events");
+
+
+    while ($row = $stmt->fetch_assoc()) {
+
+        $eventrow[] = $row;
+
+
+        $rowCount = count($eventrow);
+    }
+    echo 
+    "<div class='Test'>";
+    echo 
+    "<div class='image_grid'>";
+    $tæller = 0;
+
+    for ($i = 0; $i < $rowCount; $i++) {
+        $tæller = "item-$i";
+  
+
+        if (strpos($resimgLager[$i]['EImage'], ' ')) {
+        $resimgLagerexplode = explode(' ', $resimgLager[$i]['EImage']);
+        $resimgLager[$i]['EImage'] = $resimgLagerexplode[0];
+        }
+        else
+        {
+
+        }
+
+        echo
+            "<main class='card'>
+            <div class='card-header'>
+            <h3>{$eventrow[$i]['EName']}</h3>
+            </div>
+            <div class='$tæller card-body'>
+            <img src='img/{$resimgLager[$i]['EImage']}'>
+            </div>
+            <div class='card-footer'>
+            <p>Beskrivelse:{$eventrow[$i]['EDescription']}</p>
+            <p></p>
+            <p>Dato:{$eventrow[$i]['EDate']}</p>
+            <a href='DynamiskIndhold.php?id={$eventrow[($i)]['id']}' class='myButton'>Køb nu!</a>
+            </div>
+            </main>"
+        ;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,66 +91,13 @@
 
             <article>
 
-                <?php
-                while ($ImgLager = $Lager->fetch_assoc()) {
-                    $resimgLager[] = $ImgLager;
-                }
-            
-                $stmt = $mysqli->query("SELECT * FROM events");
-            
-            
-                while ($row = $stmt->fetch_assoc()) {
-            
-                    $eventrow[] = $row;
-            
-            
-                    $rowCount = count($eventrow);
-                }
-                echo 
-                "<div class='Test'>";
-                echo 
-                "<div class='image_grid'>";
-                $tæller = 0;
-            
-                for ($i = 0; $i < $rowCount; $i++) {
-                    $tæller = "item-$i";
-              
-            
-                    if (strpos($resimgLager[$i]['EImage'], ' ')) {
-                    $resimgLagerexplode = explode(' ', $resimgLager[$i]['EImage']);
-                    $resimgLager[$i]['EImage'] = $resimgLagerexplode[0];
-                    }
-                    else
-                    {
-            
-                    }
-            
-                    echo
-                        "<main class='card'>
-                        <div class='card-header'>
-                        <h3>{$eventrow[$i]['EName']}</h3>
-                        </div>
-                        <div class='$tæller card-body'>
-                        <img src='img/{$resimgLager[$i]['EImage']}'>
-                        </div>
-                        <div class='card-footer'>
-                        <p>Beskrivelse: {$eventrow[$i]['EDescription']}</p>
-                        <p>Dato: {$eventrow[$i]['EDate']}</p>
-                        <p>Start tid: {$eventrow[$i]['EStartTime']}</p>
-                        <p>Slut tid: {$eventrow[$i]['EEndTime']}</p>
-                        <p>Sted: {$eventrow[$i]['EPlace']}</p>
-                        <p>Pris: {$eventrow[$i]['EPrice']}</p>
-                        <p>Max deltagere: {$eventrow[$i]['EMaxPart']}</p>
-                        <p>Nuværende tiltagere: {$eventrow[$i]['ECurrPart']}</p>
-                        <p>Kontakt navn: {$eventrow[$i]['EContactName']}</p>
-                        <p>Tlf nummer: {$eventrow[$i]['EContactPhone']}</p>
-                        <p>Oprettet af: {$eventrow[$i]['ECreatedBy']}</p>
-                        <a href='visArrangement.php?id={$eventrow[($i)]['id']}' class='myButton'>Tilmeld!</a>
-                        </div>
-                        </main>"
-                    ;
-                }
-                ?>
+                <p>[Arrangement billede (må gerne være i højformat her men må også gerne være i det format, der er vedlagt til opgaven)]</p>
+                <p>[Arrangement beskrivelse - evt. forkortet eller afbrudt med ...]</p>
+                <p>[Arrangement dato]</p>
+                <p>[Arrangement starttidspunkt]</p>
+                <p>[Arrangement sted]</p>
+
+                <a href="visArrangement.html">Læs mere om dette arrangement...</a> <!-- Eller som knap -->
 
             </article>
 
