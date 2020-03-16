@@ -49,8 +49,7 @@
                 $stmt = $mysqli->query("SELECT * FROM events");
             
             
-                while ($row = $stmt->fetch_assoc()) 
-                {
+                while ($row = $stmt->fetch_assoc()) {
             
                     $eventrow[] = $row;
             
@@ -63,13 +62,11 @@
                 "<div class='image_grid'>";
                 $tæller = 0;
             
-                for ($i = 0; $i < $rowCount; $i++) 
-                {
+                for ($i = 0; $i < $rowCount; $i++) {
                     $tæller = "item-$i";
               
             
-                    if (strpos($resimgLager[$i]['EImage'], ' ')) 
-                    {
+                    if (strpos($resimgLager[$i]['EImage'], ' ')) {
                     $resimgLagerexplode = explode(' ', $resimgLager[$i]['EImage']);
                     $resimgLager[$i]['EImage'] = $resimgLagerexplode[0];
                     }
