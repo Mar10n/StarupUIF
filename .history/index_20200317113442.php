@@ -41,6 +41,9 @@
             <article>
 
                 <?php
+                if ($_POST['eventCategory'] == $eventrow[$i]['ECategory']) {
+                    # code...
+                }
                 while ($ImgLager = $Lager->fetch_assoc()) 
                 {
                     $resimgLager[] = $ImgLager;
@@ -77,19 +80,7 @@
                     {
             
                     }
-                        
-                    if (isset($_POST['catChooser']))
-                    {
-                        #
-                    }
-
-                    foreach ($category as $catKey => $catValue)
-                    {
-                        if ($category == $eventrow[0]['ECategory'])
-                        {
-                            $_POST['eventCategory'] = $eventrow[0]['ECategory'];
-                        }
-                    }
+            
                     echo
                         "<main class='card'>
                         <div class='card-header'>

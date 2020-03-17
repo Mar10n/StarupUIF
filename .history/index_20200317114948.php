@@ -77,18 +77,10 @@
                     {
             
                     }
-                        
-                    if (isset($_POST['catChooser']))
-                    {
-                        #
-                    }
-
+            
                     foreach ($category as $catKey => $catValue)
                     {
-                        if ($category == $eventrow[0]['ECategory'])
-                        {
-                            $_POST['eventCategory'] = $eventrow[0]['ECategory'];
-                        }
+                        # code...
                     }
                     echo
                         "<main class='card'>

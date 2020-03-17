@@ -77,12 +77,7 @@
                     {
             
                     }
-                        
-                    if (isset($_POST['catChooser']))
-                    {
-                        #
-                    }
-
+            
                     foreach ($category as $catKey => $catValue)
                     {
                         if ($category == $eventrow[0]['ECategory'])

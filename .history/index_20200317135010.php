@@ -78,9 +78,8 @@
             
                     }
                         
-                    if (isset($_POST['catChooser']))
-                    {
-                        #
+                    if (isset($_POST['catChooser'])) {
+                        # code...
                     }
 
                     foreach ($category as $catKey => $catValue)

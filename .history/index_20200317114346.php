@@ -77,19 +77,11 @@
                     {
             
                     }
-                        
-                    if (isset($_POST['catChooser']))
-                    {
-                        #
-                    }
-
-                    foreach ($category as $catKey => $catValue)
-                    {
-                        if ($category == $eventrow[0]['ECategory'])
-                        {
-                            $_POST['eventCategory'] = $eventrow[0]['ECategory'];
-                        }
-                    }
+            
+                    if ($_POST['eventCategory'] == $eventrow[$i]['ECategory'])
+                {
+                    echo "This is  test to see if the category sorting system works.";
+                }
                     echo
                         "<main class='card'>
                         <div class='card-header'>
