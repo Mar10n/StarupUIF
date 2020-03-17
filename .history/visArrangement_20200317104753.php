@@ -5,9 +5,9 @@
 ?>
 
 <?php
-    $id = $_GET['id'];
+    $id = $_GET['EID'];
     $imgcount = 0;
-    /* $Lager = $mysqli->query("SELECT EImage FROM events WHERE EID = $id ");
+    $Lager = $mysqli->query("SELECT EImage FROM events WHERE EID = $id ");
     $imgCountVarible = 0;
     while ($ImgLager = $Lager->fetch_assoc())
     {
@@ -21,30 +21,30 @@
         {
 
         }
-    }*/
+    }
     $stmt = $mysqli->query("SELECT * FROM events WHERE EID = '$id' ");
 
 
     while ($row = $stmt->fetch_assoc())
     {
         $eventrow[] = $row;
-
         $rowCount = count($eventrow);
     }
 
     echo
     "<div class='image_grid'>";
-    for ($i = 0; $i < $rowCount; $i++)
+    for ($i = 0; $i < $imgcount; $i++)
     {
 
         $tæller = "item-$i";
-       /* echo
+        echo
             "<div class='$tæller'>
                
             <img src='img/{$resimgLagerexplode[$i]}'>
        
             </div>"
-        ;*/
+        ;
+    }
 
         echo "</div>";
         echo 
@@ -65,8 +65,6 @@
         <p>Oprettet af: {$eventrow[0]['ECreatedBy']}</p>
         <a href='#' class='myButton'>Tilmeld</a>
         </div>";
-
-    }
 ?>
 
 <!DOCTYPE html>

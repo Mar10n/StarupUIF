@@ -34,7 +34,7 @@
 
     echo
     "<div class='image_grid'>";
-    for ($i = 0; $i < $rowCount; $i++)
+    for ($i = 0; $i < $rowcount; $i++)
     {
 
         $tæller = "item-$i";
