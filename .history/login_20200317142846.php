@@ -20,7 +20,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
  
-        // Checking if the email is empty
+        // Checking if the username is empty
         if(empty(trim($_POST["brugerMail"])))
         {
             $email_err = "Indtast venligst din email.";
@@ -44,7 +44,7 @@
         if(empty($email_err) && empty($password_err))
         {
             // Preparing a select statement
-            $sql = "SELECT UID, UEmail, UPassword FROM users WHERE UEmail = ?";
+            $sql = "SELECT UID, UEmail, password FROM users WHERE UEmail = ?";
         
             if($stmt = mysqli_prepare($mysqli, $sql))
             {
@@ -60,7 +60,7 @@
                     // Storing result
                     mysqli_stmt_store_result($stmt);
                 
-                    // Checking if the email exists, if yes then verify password
+                    // Checking if the username exists, if yes then verify password
                     if(mysqli_stmt_num_rows($stmt) == 1)
                     {                    
                         // Binding result variables
@@ -89,7 +89,7 @@
                     } 
                     else
                     {
-                        // Displays an error message if email doesn't exist
+                        // Displays an error message if username doesn't exist
                         $email_err = "Der blev ikke fundet nogen bruger med den email.";
                     }
                 }

@@ -60,7 +60,7 @@
                     // Storing result
                     mysqli_stmt_store_result($stmt);
                 
-                    // Checking if the email exists, if yes then verify password
+                    // Checking if the username exists, if yes then verify password
                     if(mysqli_stmt_num_rows($stmt) == 1)
                     {                    
                         // Binding result variables

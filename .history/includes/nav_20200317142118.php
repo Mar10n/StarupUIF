@@ -8,8 +8,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php">Forside</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Log ind</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="opretBruger.php">Opret Bruger</a>
+            </li>
             <?php
-            /*if (isset($_SESSION["loggedin"]))
+            if (isset($_SESSION["loggedin"]))
             {
                 echo "<li class='nav-item'>" . "<a class='nav-link' href=" . "loggedOut.php" . ">Log ud</a></li>";
                 echo "<li class='nav-item'>" . "<a class='nav-link href=" . "visBruger.php" . ">Min konto</a></li>";
@@ -18,7 +24,7 @@
             {
                 echo "<li class='nav-item'>" . "<a class='nav-link href=" . "login.php" . ">Log ind</a></li>";
                 echo "<li class='nav-item'>" . "<a class='nav-link href=" . "opretBruger.php". ">Opret bruger</a></li>";
-            }*/
+            }
         ?>
         </ul>
     </div>
