@@ -53,7 +53,7 @@
                     }
                     else {
                         $showAll = "<form method='post'>
-                        <input type='submit' name='showAllEvents' value='Vis Alle Arrangementer'>
+                        <input type='text'>
                         </form>";
                     }
                 }

@@ -44,18 +44,7 @@
                 <?php
                 if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 {
-                    $_SESSION += $_POST;
-                    $_SESSION['eventCategory'] = $_POST['eventCategory'];
-                    if (isset($_SESSION['showAllEvents']))
-                    {
-                        $rowCount = count($eventrow);
-                        $showAll = " ";
-                    }
-                    else {
-                        $showAll = "<form method='post'>
-                        <input type='submit' name='showAllEvents' value='Vis Alle Arrangementer'>
-                        </form>";
-                    }
+                    # code...
                 }
                 if (isset($_POST['catChooser']))
                 {
@@ -97,7 +86,7 @@
                     {
             
                     }
-                    if (isset($_POST['catChooser']) && $_POST['eventCategory'] != 'alle')
+                    if (isset($_POST['catChooser']) || $_POST['eventCategory'] != 'alle')
                     {
                         $_SESSION += $_POST;
                         if ($_POST['eventCategory'] == $eventrow[$i]['ECategory'])

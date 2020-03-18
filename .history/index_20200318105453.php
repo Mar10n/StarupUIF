@@ -49,12 +49,7 @@
                     if (isset($_SESSION['showAllEvents']))
                     {
                         $rowCount = count($eventrow);
-                        $showAll = " ";
-                    }
-                    else {
-                        $showAll = "<form method='post'>
-                        <input type='submit' name='showAllEvents' value='Vis Alle Arrangementer'>
-                        </form>";
+                        $showAll = "";
                     }
                 }
                 if (isset($_POST['catChooser']))

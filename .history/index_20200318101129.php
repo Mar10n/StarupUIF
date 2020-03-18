@@ -3,7 +3,6 @@
     // including config file
     require_once "includes/config.php";
     $Lager = $mysqli->query("SELECT EImage FROM events");
-    $showAll = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +27,7 @@
             <form method="post">
                 <label for="eventCategory">Vælg kategori</label>
                 <select name="eventCategory">
-                    <option value="Alle" selected>Alle</option>
+                    <option value="Alle">Alle</option>
                     <option value="Musik">Musik</option>
                     <option value="Kunst">Kunst</option>
                     <option value="Foredrag">Foredrag</option>
@@ -42,21 +41,6 @@
             <article>
 
                 <?php
-                if ($_SERVER['REQUEST_METHOD'] == 'POST')
-                {
-                    $_SESSION += $_POST;
-                    $_SESSION['eventCategory'] = $_POST['eventCategory'];
-                    if (isset($_SESSION['showAllEvents']))
-                    {
-                        $rowCount = count($eventrow);
-                        $showAll = " ";
-                    }
-                    else {
-                        $showAll = "<form method='post'>
-                        <input type='submit' name='showAllEvents' value='Vis Alle Arrangementer'>
-                        </form>";
-                    }
-                }
                 if (isset($_POST['catChooser']))
                 {
                     # code...
@@ -97,18 +81,7 @@
                     {
             
                     }
-                    if (isset($_POST['catChooser']) && $_POST['eventCategory'] != 'alle')
-                    {
-                        $_SESSION += $_POST;
-                        if ($_POST['eventCategory'] == $eventrow[$i]['ECategory'])
-                        {
-                            # code...
-                        }
-                    }
-                    if (isset($_POST['showAllEvents'])) {
-                        $rowCount = count($eventrow);
-                        $showAll = " ";
-                    }
+                    
                     echo
                         "<main class='card'>
                         <div class='card-header'>

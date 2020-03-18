@@ -46,16 +46,6 @@
                 {
                     $_SESSION += $_POST;
                     $_SESSION['eventCategory'] = $_POST['eventCategory'];
-                    if (isset($_SESSION['showAllEvents']))
-                    {
-                        $rowCount = count($eventrow);
-                        $showAll = " ";
-                    }
-                    else {
-                        $showAll = "<form method='post'>
-                        <input type='submit' name='showAllEvents' value='Vis Alle Arrangementer'>
-                        </form>";
-                    }
                 }
                 if (isset($_POST['catChooser']))
                 {
