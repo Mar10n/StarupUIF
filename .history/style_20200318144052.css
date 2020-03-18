@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
+.bg-light
+{
+    background-color:hsl(187, 84%, 34.3%)!important
+}
+
+.navbar-brand
+{
+    width: 15%;
+    height: auto;
+}
+
+h1
+{
+    font-family: 'Roboto', sans-serif;
+}
+
+body
+{
+    font-family: 'Lato', sans-serif;
+}
+nav img
+{
+
+}
