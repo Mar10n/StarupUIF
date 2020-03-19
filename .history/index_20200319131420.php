@@ -127,7 +127,7 @@
                                                 <p class='card-text mt-3'>
                                                     Dato: {$eventrows[$i]['EDate']}
                                                 </p>
-                                                <a class='btn btn-primary' href='visArrangement.php?id={$eventrows[($i)]['EID']}'>Læs mere</a>
+                                                <a class='btn btn-primary' href='visArrangement.php?id=>Læs mere</a>
                                                 
                                             </div>
                                         </div>
