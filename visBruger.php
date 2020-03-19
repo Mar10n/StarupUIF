@@ -1,15 +1,48 @@
 <?php
     session_start();
     require_once "includes/config.php";
-    if (isset($_GET['UEmail']))
+    if($_SERVER['REQUEST_METHOD'] == "POST")
     {
-        $email = $_GET['UEmail'];
-        $get_user = $mysqli->query("SELECT * FROM users WHERE UEmail = '$email'");
-        if ($get_user->num_rows == 1)
+        if (isset($_POST['retBruger']))
         {
-            $profile_data = $get_user->fetch_assoc();
+            if(isset($_POST['accRetBruger']))
+            {
+                if($mysqli->query("UPDATE users SET UFirstname = '{$_POST['brugerFornavn']}', ULastname = '{$_POST['brugerEfternavn']}', UAddress = '{$_POST['brugerAdresse']}', UPostcode = '{$_POST['brugerPostnr']}', UCity = '{$_POST['brugerBy']}', UPhone = '{$_POST['brugerTlfnr']}', UPriviledge = '{$_POST['brugerPrivilegie']}' WHERE UEmail = '{$_POST['brugerMail']}'"))
+                {
+                    $UpdateMsg = "Brugeren er opdateret!";
+                    $currUserMail = $_POST['brugerMail'];
+                    $currUserFName = $_POST['brugerFornavn'];
+                    $currUserLName = $_POST['brugerEfternavn'];
+                    $currUserAdd = $_POST['brugerAdresse'];
+                    $currUserPost = $_POST['brugerPostnr'];
+                    $currUserCity = $_POST['brugerBy'];
+                    $currUserPhone = $_POST['brugerTlfnr'];
+                }
+                else
+                {
+                    $UpdateMsg = "Brugeren blev ikke opdateret!";
+                }
+            }
+            else
+            {
+                header('location: visBruger.php');
+            }
         }
-    } 
+
+        $result = $mysqli->query("SELECT * FROM users");
+
+        if($mysqli->error)
+        {
+            echo $mysqli->error;
+        }
+        else
+        {
+            while($userRow = $result->fetch_assoc())
+            {
+                $allUsers[] = $userRow;
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,8 +107,8 @@
                     
 
                     <input type="submit" class="btn btn-primary" value="Ret Bruger" name="retBruger">
-                    <input type="submit" class="btn btn-primary" value="Acceptér Ændringer" name="accRetBruger">
-                    <input type="submit" class="btn btn-primary" value="Fortryd Ændringer" name="fortrRetBruger">
+                    <input type="submit" class="btn btn-primary" value="Acceptér Ændringer" name="accRetBruger" hidden>
+                    <input type="submit" class="btn btn-primary" value="Fortryd Ændringer" name="fortrRetBruger" hidden>
                 </form>
 
             </article>
