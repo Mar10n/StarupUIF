@@ -31,6 +31,42 @@
 
         $rowCount = count($eventrow);
     }
+
+    echo
+    "<div class='image_grid'>";
+    for ($i = 0; $i < $rowCount; $i++)
+    {
+
+        $tæller = "item-$i";
+       /* echo
+            "<div class='$tæller'>
+               
+            <img src='img/{$resimgLagerexplode[$i]}'>
+       
+            </div>"
+        ;*/
+
+        echo "</div>";
+        echo 
+        "<div class ='DynText'>
+        <h1>Navn: {$eventrow[0]['EName']}</h1>
+        <p>Kategori: {$eventrow[0]['ECategory']}</p>
+        <p>Beskrivelse: {$eventrow[0]['EDescription']}</p>
+        <img src={$eventrow[0]['EImage']}>
+        <p>Dato: {$eventrow[0]['EDate']}</p>
+        <p>Start tidspunkt: {$eventrow[0]['EStartTime']}</p>
+        <p>Slut tidspunkt: {$eventrow[0]['EEndTime']}</p>
+        <p>Sted: {$eventrow[0]['EPlace']}</p>
+        <p>Pris: {$eventrow[0]['EPrice']}</p>
+        <p>Max antal deltagere: {$eventrow[0]['EMaxPart']}</p>
+        <p>Antal deltagere: {$eventrow[0]['ECurrPart']}</p>
+        <p>navn: {$eventrow[0]['EContactName']}</p>
+        <p>Tlf: {$eventrow[0]['EContactPhone']}</p>
+        <p>Oprettet af: {$eventrow[0]['ECreatedBy']}</p>
+        <a href='#' class='myButton'>Tilmeld</a>
+        </div>";
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +102,7 @@
                     
                     <p class="form-group">
                         <label for="eventNavn">Navn på arrangement:</label>
-                        <input type="text" name="eventNavn" value="<?php echo "{$eventrow[0]['EName']}"?>">
+                        <input type="text" name="eventNavn">
                     </p>
                     <p class="form-group">
                         <label for="eventCategory">Kategori</label>
@@ -81,39 +117,39 @@
                     </p>
                     <p class="form-group">
                         <label for="eventBeskrivelse">Beskrivelse af arrangementet:</label>
-                        <textarea placeholder="Indtast beskrivelse..." style="resize: none;"><?php echo "{$eventrow[0]['EDescription']}"?></textarea>
+                        <textarea placeholder="Indtast beskrivelse..." style="resize: none;"></textarea>
                     </p>
                     <p class="form-group">
                         <label for="eventImage">Upload et billede til/af arrangement:</label>
-                        <input type="file" name="eventImage" value="<?php echo "{$eventrow[0]['EImage']}"?>">
+                        <input type="file" name="eventImage">
                     </p>
                     <p class="form-group">
                         <label for="eventDato">Dato: </label>
-                        <input type="date" name="eventDato" min="2020-01-01" max="2020-12-31" value="<?php echo "{$eventrow[0]['EDate']}"?>">
+                        <input type="date" name="eventDato" min="2020-01-01" max="2020-12-31">
                     </p>
                     <p class="form-group">
                         <label for="eventStartTid">Start tidspunkt: </label>
-                        <input type="time" name="eventStartTid" value="<?php echo "{$eventrow[0]['EStartTime']}"?>">
+                        <input type="time" name="eventStartTid">
                     </p>
                     <p class="form-group">
                         <label for="eventSlutTid">Slut tidspunkt (ikke påkrævet): </label>
-                        <input type="time" name="eventSlutTid" value="<?php echo "{$eventrow[0]['EEndTime']}"?>">
+                        <input type="time" name="eventSlutTid">
                     </p>
                     <p class="form-group">
                         <label for="eventSted">Sted: </label>
-                        <input type="text" name="eventSted" value="<?php echo "{$eventrow[0]['EPlace']}"?>">
+                        <input type="text" name="eventSted">
                     </p>
                     <p class="form-group">
                         <label for="eventMaxDelt">Max. antal deltagere: </label>
-                        <input type="number" name="eventMaxDelt" value="<?php echo "{$eventrow[0]['EMaxPart']}"?>">
+                        <input type="number" name="eventMaxDelt">
                     </p>
                     <p class="form-group">
                         <label for="eventAnsvarlig">Ansvarlig/kontaktperson: </label>
-                        <input type="text" name="eventAnsvarlig" value="<?php echo "{$eventrow[0]['EContactName']}"?>">
+                        <input type="text" name="eventAnsvarlig">
                     </p>
                     <p class="form-group">
                         <label for="eventAnsvTlf">Telefonnummer ansvarlig/kontaktperson:</label>
-                        <input type="text" name="eventAnsvTlf" value="<?php echo "{$eventrow[0]['EContactPhone']}"?>">
+                        <input type="text" name="eventAnsvTlf" value="<?php echo "$eventrow[0]['EContactPhone']"?>">
                     </p>
                 </form>
             </article>

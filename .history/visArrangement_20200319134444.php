@@ -31,6 +31,42 @@
 
         $rowCount = count($eventrow);
     }
+
+    echo
+    "<div class='image_grid'>";
+    for ($i = 0; $i < $rowCount; $i++)
+    {
+
+        $tæller = "item-$i";
+       /* echo
+            "<div class='$tæller'>
+               
+            <img src='img/{$resimgLagerexplode[$i]}'>
+       
+            </div>"
+        ;*/
+
+        echo "</div>";
+        echo 
+        "<div class ='DynText'>
+        <h1>Navn: {$eventrow[0]['EName']}</h1>
+        <p>Kategori: {$eventrow[0]['ECategory']}</p>
+        <p>Beskrivelse: {$eventrow[0]['EDescription']}</p>
+        <img src={$eventrow[0]['EImage']}>
+        <p>Dato: {$eventrow[0]['EDate']}</p>
+        <p>Start tidspunkt: {$eventrow[0]['EStartTime']}</p>
+        <p>Slut tidspunkt: {$eventrow[0]['EEndTime']}</p>
+        <p>Sted: {$eventrow[0]['EPlace']}</p>
+        <p>Pris: {$eventrow[0]['EPrice']}</p>
+        <p>Max antal deltagere: {$eventrow[0]['EMaxPart']}</p>
+        <p>Antal deltagere: {$eventrow[0]['ECurrPart']}</p>
+        <p>navn: {$eventrow[0]['EContactName']}</p>
+        <p>Tlf: {$eventrow[0]['EContactPhone']}</p>
+        <p>Oprettet af: {$eventrow[0]['ECreatedBy']}</p>
+        <a href='#' class='myButton'>Tilmeld</a>
+        </div>";
+
+    }
 ?>
 
 <!DOCTYPE html>

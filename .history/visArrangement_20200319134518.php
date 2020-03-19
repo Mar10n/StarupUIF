@@ -31,6 +31,13 @@
 
         $rowCount = count($eventrow);
     }
+
+    echo
+    "<div class='image_grid'>";
+    for ($i = 0; $i < $rowCount; $i++)
+    {
+        $tæller = "item-$i";
+    }
 ?>
 
 <!DOCTYPE html>
