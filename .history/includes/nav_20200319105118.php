@@ -1,5 +1,5 @@
 <nav class="customstyle navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.php?cat=alle"><img src="img/LOGO-Starupuif.png" width="40" height="40" class="d-inline-block" alt=""></a>
+    <a class="navbar-brand" href="index.php"><img src="img/LOGO-Starupuif.png" width="40" height="40" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

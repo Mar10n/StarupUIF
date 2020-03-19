@@ -24,10 +24,9 @@
         $result = $mysqli->query("SELECT * FROM events WHERE EDate > '$today' && ECategory = '$category' ORDER BY EDate, EStartTime ASC");
     }
 
-    // Checking for db errors.
-    if($mysqli->error)
+    if($db->error)
     {
-        echo $mysqli->error;
+        echo $db->error;
     }
     else
     {
@@ -70,7 +69,7 @@
     <title>Starup UIF arrangementer</title>
 </head>
 <body>
-    <?php include "includes/nav.php"; ?>
+    <?php @include "nav.php"; ?>
 
     <header>
         <img src="img/header-img-lg.jpg" class="img-fluid">

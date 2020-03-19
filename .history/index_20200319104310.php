@@ -24,10 +24,9 @@
         $result = $mysqli->query("SELECT * FROM events WHERE EDate > '$today' && ECategory = '$category' ORDER BY EDate, EStartTime ASC");
     }
 
-    // Checking for db errors.
-    if($mysqli->error)
+    if($db->error)
     {
-        echo $mysqli->error;
+        echo $db->error;
     }
     else
     {
