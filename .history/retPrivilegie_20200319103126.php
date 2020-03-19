@@ -1,13 +1,20 @@
 <?php
-    // Includes the config file
-    require_once "includes/config.php";
+
     $UpdateMsg = "";
     
+    $db = new MySQLi("localhost", "halu", "1234", "starupuif");
+
+    if($db->connect_error)
+    {
+        echo $db->connect_error;
+    }
+    else
+    {
         if($_SERVER['REQUEST_METHOD'] == "POST")
         {
             if(isset($_POST['admAccRetBruger']))
             {
-                if($mysqli->query("UPDATE users SET UFirstname = '{$_POST['brugerFornavn']}', ULastname = '{$_POST['brugerEfternavn']}', UAddress = '{$_POST['brugerAdresse']}', UPostcode = '{$_POST['brugerPostnr']}', UCity = '{$_POST['brugerBy']}', UPhone = '{$_POST['brugerTlfnr']}', UPriviledge = '{$_POST['brugerPrivilegie']}' WHERE UEmail = '{$_POST['brugerMail']}'"))
+                if($db->query("UPDATE users SET UFirstname = '{$_POST['brugerFornavn']}', ULastname = '{$_POST['brugerEfternavn']}', UAddress = '{$_POST['brugerAdresse']}', UPostcode = '{$_POST['brugerPostnr']}', UCity = '{$_POST['brugerBy']}', UPhone = '{$_POST['brugerTlfnr']}', UPriviledge = '{$_POST['brugerPrivilegie']}' WHERE UEmail = '{$_POST['brugerMail']}'"))
                 {
                     $UpdateMsg = "Brugeren er opdateret!";
                     $currUserMail = $_POST['brugerMail'];
@@ -43,11 +50,11 @@
             }
         }
 
-        $result = $mysqli->query("SELECT * FROM users");
+        $result = $db->query("SELECT * FROM users");
 
-        if($mysqli->error)
+        if($db->error)
         {
-            echo $mysqli->error;
+            echo $db->error;
         }
         else
         {
@@ -56,7 +63,13 @@
                 $allUsers[] = $userRow;
             }
         }
+    }
 
+    
+    
+    
+
+    
     if(!isset($_POST['chooseUser']))
     {
         
@@ -98,14 +111,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <meta name="description" content="Starup UIF arrangements kalender. Opret nye arrangementer - tilmeld dig arrangementer. Et godt sted at starte et aktivt og interessant fritidsliv.">
     <title>Starup UIF arrangementer - ret brugerprivilegie</title>
 </head>
 <body>
 
-    <?php include "includes/nav.php"; ?>
+    <?php @include "nav.php"; ?>
 
     <header>
         <img src="img/header-img-lg.jpg" class="img-fluid">
@@ -265,8 +278,7 @@
             </article>
         </section>
     </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
